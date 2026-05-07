@@ -16,7 +16,7 @@ from .models import Reserva
 
 
 class RegistroDocenteView(FormView):
-    template_name = 'appsebastian/registro.html'
+    template_name = 'App/registro.html'
     form_class = RegistroDocenteForm
     success_url = reverse_lazy('reserva_list')
 
@@ -38,7 +38,7 @@ class EsAdminMixin(UserPassesTestMixin):
 
 class ReservaListView(LoginRequiredMixin, ListView):
     model = Reserva
-    template_name = 'appsebastian/reserva_list.html'
+    template_name = 'App/reserva_lista.html'
     context_object_name = 'reservas'
 
     def get_queryset(self):
@@ -66,7 +66,7 @@ class ReservaListView(LoginRequiredMixin, ListView):
 class ReservaCreateView(LoginRequiredMixin, CreateView):
     model = Reserva
     form_class = ReservaForm
-    template_name = 'appsebastian/reserva_form.html'
+    template_name = 'App/reserva_form.html'
     success_url = reverse_lazy('reserva_list')
 
     def form_valid(self, form):
@@ -82,7 +82,7 @@ class ReservaCreateView(LoginRequiredMixin, CreateView):
 class ReservaUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Reserva
     form_class = ReservaForm
-    template_name = 'appsebastian/reserva_form.html'
+    template_name = 'App/reserva_form.html'
     success_url = reverse_lazy('reserva_list')
 
     def test_func(self):
@@ -97,7 +97,7 @@ class ReservaUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ReservaDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Reserva
-    template_name = 'appsebastian/reserva_confirm_delete.html'
+    template_name = 'App/reserva_confirm_delete.html'
     success_url = reverse_lazy('reserva_list')
 
     def test_func(self):
@@ -116,7 +116,7 @@ class ReservaCambiarEstadoView(LoginRequiredMixin, EsAdminMixin, View):
 
 
 class EstadisticasView(LoginRequiredMixin, EsAdminMixin, TemplateView):
-    template_name = 'appsebastian/estadisticas.html'
+    template_name = 'App/estadisticas.html'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
