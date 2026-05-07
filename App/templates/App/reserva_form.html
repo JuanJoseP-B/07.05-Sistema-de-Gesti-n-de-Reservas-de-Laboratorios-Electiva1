@@ -1,0 +1,79 @@
+{% extends 'App/base.html' %}
+
+{% block title %}{{ titulo }} - ReservasLab{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-calendar-plus"></i> {{ titulo }}
+                </h5>
+            </div>
+            <div class="card-body p-4">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Laboratorio *</label>
+                        {{ form.laboratorio }}
+                        {% if form.laboratorio.errors %}
+                        <div class="text-danger small mt-1">{{ form.laboratorio.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Fecha *</label>
+                        {{ form.fecha }}
+                        {% if form.fecha.errors %}
+                        <div class="text-danger small mt-1">{{ form.fecha.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label fw-semibold">Hora inicio *</label>
+                            {{ form.hora_inicio }}
+                            {% if form.hora_inicio.errors %}
+                            <div class="text-danger small mt-1">{{ form.hora_inicio.errors|join:", " }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label fw-semibold">Hora fin *</label>
+                            {{ form.hora_fin }}
+                            {% if form.hora_fin.errors %}
+                            <div class="text-danger small mt-1">{{ form.hora_fin.errors|join:", " }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Motivo *</label>
+                        {{ form.motivo }}
+                        {% if form.motivo.errors %}
+                        <div class="text-danger small mt-1">{{ form.motivo.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Guardar
+                        </button>
+                        <a href="{% url 'reserva_list' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
