@@ -1,5 +1,27 @@
-env/   
-__pycagiche__/
-db.sqlite3  
-*.pyc
-.vscode/
+# Python 
+__pycache__/ 
+*.py[cod] 
+*.pyo 
+*.pyd 
+.Python 
+ 
+# Django 
+*.log 
+local_settings.py 
+db.sqlite3 
+db.sqlite3-journal 
+media/ 
+ 
+# Entornos virtuales 
+env/ 
+venv/ 
+.env 
+.venv/ 
+ 
+# IDEs 
+.vscode/ 
+.idea/ 
+*.swp 
+ 
+# Vercel 
+.vercel
