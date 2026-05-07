@@ -2,7 +2,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-proyecto-reservas-laboratorios-2024'
+SECRET_KEY = 'django-insecure-proyecto-sebastian-reservas-laboratorios-2024'
 
 DEBUG = True
 
@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_reservas',
+    'appsebastian',
 ]
 
 MIDDLEWARE = [
@@ -28,7 +28,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'proyecto_reservas.urls'
+ROOT_URLCONF = 'proyecto_sebastian.urls'
 
 TEMPLATES = [
     {
@@ -46,7 +46,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'proyecto_reservas.wsgi.application'
+WSGI_APPLICATION = 'proyecto_sebastian.wsgi.application'
 
 DATABASES = {
     'default': {
