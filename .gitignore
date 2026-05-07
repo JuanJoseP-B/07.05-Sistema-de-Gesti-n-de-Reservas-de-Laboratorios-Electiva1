@@ -1,0 +1,5 @@
+env/   
+__pycagiche__/
+db.sqlite3  
+*.pyc
+.vscode/
