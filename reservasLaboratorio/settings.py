@@ -1,6 +1,10 @@
 from pathlib import Path
+import sys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Agregar el directorio raíz al path para que pueda encontrar la app App
+sys.path.insert(0, str(BASE_DIR))
 
 SECRET_KEY = 'django-insecure-proyecto-reservas-laboratorios-2024'
 
@@ -15,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_reservas',
+    'App',
 ]
 
 MIDDLEWARE = [
@@ -28,7 +32,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'proyecto_reservas.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -46,7 +50,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'proyecto_reservas.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 DATABASES = {
     'default': {
